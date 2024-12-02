@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"bufio"
@@ -7,49 +7,21 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	"time"
 )
 
-func main() {
-	startTime := time.Now()
-	filePath := "puzzle_1.txt"
-
-	// read file into int arrays
-	err, s1, s2 := readFile(filePath)
-	if err != nil {
-		fmt.Println("Error reading file:", err)
-		return
-	}
-
-	// sort the arrays with quicksort (o(n log n))
-	sort.Ints(s1)
-	sort.Ints(s2)
-
-	// part 1 o(n)
-	diffScore := diffScore(s1, s2)
-	fmt.Println(diffScore)
-
-	// part 2 o(n log n)
-	simScore := similarityScore(s1, s2)
-	fmt.Println(simScore)
-
-	elapsedTime := time.Since(startTime)
-	fmt.Printf("Operation took %s\n", elapsedTime)
-}
-
-func readFile(filePath string) (error, []int, []int) {
+func ReadDay1File(filePath string) ([]int, []int, error) {
 	s1, s2 := []int{}, []int{}
 
 	if _, err := os.Stat(filePath); err != nil {
 		fmt.Printf("File status error: %v\n", err)
-		return err, nil, nil
+		return nil, nil, err
 	}
 
 	// Try to read the file
 	file, err := os.Open(filePath)
 	if err != nil {
 		fmt.Printf("Error opening file: %v\n", err)
-		return err, nil, nil
+		return nil, nil, err
 	}
 	defer file.Close()
 
@@ -67,10 +39,10 @@ func readFile(filePath string) (error, []int, []int) {
 		s1, s2 = append(s1, num1), append(s2, num2)
 	}
 
-	return nil, s1, s2
+	return s1, s2, nil
 }
 
-func diffScore(s1 []int, s2 []int) int {
+func DiffScore(s1 []int, s2 []int) int {
 	count := 0
 
 	for index, v := range s1 {
@@ -84,7 +56,7 @@ func diffScore(s1 []int, s2 []int) int {
 	return count
 }
 
-func similarityScore(s1 []int, s2 []int) int {
+func SimilarityScore(s1 []int, s2 []int) int {
 	simScore := []int{}
 
 	for _, v := range s1 {
