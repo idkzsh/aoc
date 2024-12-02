@@ -30,8 +30,8 @@ func main() {
 	fmt.Println(diffScore)
 
 	// part 2 o(n log n)
-	similarityScore := similaryScore(s1, s2)
-	fmt.Println(similarityScore)
+	simScore := similarityScore(s1, s2)
+	fmt.Println(simScore)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Printf("Operation took %s\n", elapsedTime)
@@ -84,7 +84,7 @@ func diffScore(s1 []int, s2 []int) int {
 	return count
 }
 
-func similaryScore(s1 []int, s2 []int) int {
+func similarityScore(s1 []int, s2 []int) int {
 	simScore := []int{}
 
 	for _, v := range s1 {
