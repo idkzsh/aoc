@@ -38,8 +38,7 @@ func main() {
 }
 
 func readFile(filePath string) (error, []int, []int) {
-	s1 := []int{}
-	s2 := []int{}
+	s1, s2 := []int{}, []int{}
 
 	if _, err := os.Stat(filePath); err != nil {
 		fmt.Printf("File status error: %v\n", err)
@@ -65,8 +64,7 @@ func readFile(filePath string) (error, []int, []int) {
 		x := strings.Split(line, "   ")
 		num1, _ := strconv.Atoi(x[0])
 		num2, _ := strconv.Atoi(x[1])
-		s1 = append(s1, num1)
-		s2 = append(s2, num2)
+		s1, s2 = append(s1, num1), append(s2, num2)
 	}
 
 	return nil, s1, s2
