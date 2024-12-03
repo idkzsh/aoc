@@ -1,15 +1,15 @@
 package main
 
 import (
-	"aoc/day2"
+	"aoc/day3"
 	"fmt"
-	"strings"
 	"time"
 )
 
 func main() {
+	startTime := time.Now()
 	// day 1
-	// startTime := time.Now()
+
 	// filePath := "puzzle_2.txt"
 
 	// // read file into int arrays
@@ -35,31 +35,42 @@ func main() {
 	// fmt.Printf("Operation took %s\n", elapsedTime)
 
 	// day 2
-	startTime := time.Now()
-	filePath := "day2/puzzle_2.txt"
+	// filePath := "day2/puzzle_2.txt"
 
-	lines, err := day2.ReadDay2File(filePath)
+	// lines, err := day2.ReadDay2File(filePath)
+	// if err != nil {
+	// 	fmt.Println("Error reading file:", err)
+	// 	return
+	// }
+
+	// count := 0
+
+	// for _, line := range lines {
+	// 	nums := strings.Split(line, " ")
+	// 	fmt.Printf("Processing line: %v\n", nums)
+	// 	safe := day2.SafeChecker(nums)
+	// 	if safe {
+	// 		count++
+	// 	}
+	// }
+
+	// fmt.Printf("Total safe sequences: %d\n", count)
+
+	// day 3
+	filePath := "day3/puzzle_3.txt"
+	lines, err := day3.ReadDay3File(filePath)
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return
 	}
 
-	count := 0
+	// mul := day3.ParseDay3FilePart1(lines)
+	mul := day3.ParseDay3FilePart2(lines)
 
-	for _, line := range lines {
-		nums := strings.Split(line, " ")
-		fmt.Printf("Processing line: %v\n", nums)
-		safe := day2.SafeChecker(nums)
-		if safe {
-			count++
-		}
+	resultsPart2 := day3.MulPart2(mul)
 
-		// if index == 10 {
-		// 	break
-		// }
-	}
+	fmt.Println(resultsPart2)
 
-	fmt.Printf("Total safe sequences: %d\n", count)
 	elapsedTime := time.Since(startTime)
 	fmt.Printf("Operation took %s\n", elapsedTime)
 }
