@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aoc/day4"
+	"aoc/day5"
 	"fmt"
 	"time"
 )
@@ -9,16 +9,15 @@ import (
 func main() {
 	startTime := time.Now()
 	// day 3
-	filePath := "day4/puzzle_4.txt"
-	lines, err := day4.ReadDay4File(filePath)
+	filePath := "day5/puzzle_5.txt"
+	order, updates, err := day5.ReadDay5File(filePath)
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return
 	}
 
-	// fmt.Println(day4.SearchPart1(lines))
-	fmt.Println(day4.SearchPart2(lines))
-	// day4.Array2d()
+	// fmt.Println(day5.SearchPart1(order, updates))
+	fmt.Println(day5.SearchPart2(order, updates))
 
 	elapsedTime := time.Since(startTime)
 	fmt.Printf("Operation took %s\n", elapsedTime)
