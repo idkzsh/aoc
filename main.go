@@ -1,23 +1,23 @@
 package main
 
 import (
-	"aoc/day5"
+	"aoc/day6"
 	"fmt"
 	"time"
 )
 
 func main() {
 	startTime := time.Now()
-	// day 3
-	filePath := "day5/puzzle_5.txt"
-	order, updates, err := day5.ReadDay5File(filePath)
+
+	// Example grid
+	area, err := day6.ReadDay6File("day6/puzzle_6.txt")
 	if err != nil {
-		fmt.Println("Error reading file:", err)
+		fmt.Println(err)
 		return
 	}
 
-	// fmt.Println(day5.SearchPart1(order, updates))
-	fmt.Println(day5.SearchPart2(order, updates))
+	count := day6.ObstructPart2(area)
+	fmt.Printf("Total loops found: %d\n", count)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Printf("Operation took %s\n", elapsedTime)
