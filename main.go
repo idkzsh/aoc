@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aoc/day6"
+	"aoc/day7"
 	"fmt"
 	"time"
 )
@@ -10,14 +10,14 @@ func main() {
 	startTime := time.Now()
 
 	// Example grid
-	area, err := day6.ReadDay6File("day6/puzzle_6.txt")
+	eq, err := day7.ReadDay7File("day7/puzzle_7.txt")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	count := day6.ObstructPart2(area)
-	fmt.Printf("Total loops found: %d\n", count)
+	count := day7.Part1(eq)
+	fmt.Printf("Count: %d\n", count)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Printf("Operation took %s\n", elapsedTime)
