@@ -21,7 +21,6 @@ func ReadDay7File(filePath string) ([]Equation, error) {
 		return nil, err
 	}
 
-	// Try to read the file
 	file, err := os.Open(filePath)
 	if err != nil {
 		fmt.Printf("Error opening file: %v\n", err)
@@ -29,7 +28,6 @@ func ReadDay7File(filePath string) ([]Equation, error) {
 	}
 	defer file.Close()
 
-	// Read and print line by line with additional debugging
 	scanner := bufio.NewScanner(file)
 	if err := scanner.Err(); err != nil {
 		fmt.Printf("Error during scanning: %v\n", err)
