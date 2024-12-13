@@ -1,24 +1,22 @@
 package main
 
 import (
+	"aoc/day9"
 	"fmt"
 	"time"
-
-	"aoc/day8"
 )
 
 func main() {
 	startTime := time.Now()
 
-	// Example grid
-	eq, err := day8.ReadDay8File("day8/puzzle_8.txt")
+	data, err := day9.ReadDay9File("day9/puzzle_9.txt")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	count := day8.Day8(eq)
-	fmt.Println(count)
+	fileblocks := day9.Day9(data)
+	fmt.Println(day9.BlockMover2(fileblocks))
 
 	elapsedTime := time.Since(startTime)
 	fmt.Printf("Operation took %s\n", elapsedTime)
