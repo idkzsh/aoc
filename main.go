@@ -1,7 +1,7 @@
 package main
 
 import (
-	"aoc/day10"
+	"aoc/day11"
 	"fmt"
 	"time"
 )
@@ -9,14 +9,10 @@ import (
 func main() {
 	startTime := time.Now()
 
-	data, err := day10.Day10("day10/puzzle_10.txt")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-	result := day10.SearchPart1(data)
-	fmt.Println(result)
+	data := []int{2, 72, 8949, 0, 981038, 86311, 246, 7636740}
+	// data := []int{125, 17}
+	output := day11.Part1(data)
+	fmt.Println(output)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Printf("Operation took %s\n", elapsedTime)
